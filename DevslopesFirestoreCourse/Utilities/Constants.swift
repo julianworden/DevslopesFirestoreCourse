@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import Firebase
 import UIKit
 
 struct Constants {
+    // Colors
     static let yellowColor = UIColor(
         red: 245/255,
         green: 130/255,
@@ -22,12 +24,18 @@ struct Constants {
         alpha: 1
     )
 
-    // Data Model for Firebase
-    static let thoughts = "thoughts"
+    // Thought Data Model for Firebase
+    static let thoughtsCollection = "thoughts"
     static let category = "category"
     static let numberOfComments = "numberOfComments"
     static let numberOfLikes = "numberOfLikes"
     static let timestamp = "timestamp"
     static let thoughtText = "thoughtText"
     static let username = "username"
+
+    // Firebase References
+    static let thoughtsCollectionReference = Firestore.firestore().collection(thoughtsCollection)
+
+    // Table View Reuse IDs
+    static let postTableViewCellReuseId = "PostCell"
 }

@@ -11,6 +11,10 @@
 		AB218410289D5193007EE9D8 /* AddThoughtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21840F289D5193007EE9D8 /* AddThoughtViewController.swift */; };
 		AB218412289D6044007EE9D8 /* AddThoughtViewController+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB218411289D6044007EE9D8 /* AddThoughtViewController+UITextViewDelegate.swift */; };
 		AB3EB36A289D68FD00A3BFBE /* ThoughtCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3EB369289D68FD00A3BFBE /* ThoughtCategory.swift */; };
+		AB5E45CE289F359200640E7D /* MainViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5E45CD289F359200640E7D /* MainViewController+UITableViewDelegate.swift */; };
+		AB5E45D0289F35A700640E7D /* MainViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5E45CF289F35A700640E7D /* MainViewController+UITableViewDataSource.swift */; };
+		AB5E45D2289F363500640E7D /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5E45D1289F363500640E7D /* Thought.swift */; };
+		AB807045289E01900097FFC3 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB807044289E01900097FFC3 /* PostTableViewCell.swift */; };
 		ABB72AC3289CB22A0009568A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB72AC2289CB22A0009568A /* AppDelegate.swift */; };
 		ABB72AC5289CB22A0009568A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB72AC4289CB22A0009568A /* SceneDelegate.swift */; };
 		ABB72AC7289CB22A0009568A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB72AC6289CB22A0009568A /* MainViewController.swift */; };
@@ -29,6 +33,10 @@
 		AB21840F289D5193007EE9D8 /* AddThoughtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThoughtViewController.swift; sourceTree = "<group>"; };
 		AB218411289D6044007EE9D8 /* AddThoughtViewController+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddThoughtViewController+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		AB3EB369289D68FD00A3BFBE /* ThoughtCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtCategory.swift; sourceTree = "<group>"; };
+		AB5E45CD289F359200640E7D /* MainViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		AB5E45CF289F35A700640E7D /* MainViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		AB5E45D1289F363500640E7D /* Thought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
+		AB807044289E01900097FFC3 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		ABB72ABF289CB22A0009568A /* DevslopesFirestoreCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevslopesFirestoreCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB72AC2289CB22A0009568A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB72AC4289CB22A0009568A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,9 +66,10 @@
 		AB3EB36B289D6AA500A3BFBE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ABB72AC6289CB22A0009568A /* MainViewController.swift */,
-				AB21840F289D5193007EE9D8 /* AddThoughtViewController.swift */,
-				AB218411289D6044007EE9D8 /* AddThoughtViewController+UITextViewDelegate.swift */,
+				ABB72AC8289CB22A0009568A /* Main.storyboard */,
+				ABB72ACD289CB22D0009568A /* LaunchScreen.storyboard */,
+				AB807046289E019C0097FFC3 /* MainView */,
+				AB807047289E01AA0097FFC3 /* AddThoughtView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -69,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				AB3EB369289D68FD00A3BFBE /* ThoughtCategory.swift */,
+				AB5E45D1289F363500640E7D /* Thought.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -79,6 +89,26 @@
 				AB21840D289D5096007EE9D8 /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AB807046289E019C0097FFC3 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				ABB72AC6289CB22A0009568A /* MainViewController.swift */,
+				AB5E45CD289F359200640E7D /* MainViewController+UITableViewDelegate.swift */,
+				AB5E45CF289F35A700640E7D /* MainViewController+UITableViewDataSource.swift */,
+				AB807044289E01900097FFC3 /* PostTableViewCell.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		AB807047289E01AA0097FFC3 /* AddThoughtView */ = {
+			isa = PBXGroup;
+			children = (
+				AB21840F289D5193007EE9D8 /* AddThoughtViewController.swift */,
+				AB218411289D6044007EE9D8 /* AddThoughtViewController+UITextViewDelegate.swift */,
+			);
+			path = AddThoughtView;
 			sourceTree = "<group>";
 		};
 		ABB72AB6289CB22A0009568A = {
@@ -102,12 +132,10 @@
 			children = (
 				ABB72AC2289CB22A0009568A /* AppDelegate.swift */,
 				ABB72AC4289CB22A0009568A /* SceneDelegate.swift */,
-				AB3EB36D289D6B3B00A3BFBE /* Utilities */,
 				AB3EB36C289D6AB600A3BFBE /* Model */,
 				AB3EB36B289D6AA500A3BFBE /* View */,
-				ABB72AC8289CB22A0009568A /* Main.storyboard */,
+				AB3EB36D289D6B3B00A3BFBE /* Utilities */,
 				ABB72ACB289CB22D0009568A /* Assets.xcassets */,
-				ABB72ACD289CB22D0009568A /* LaunchScreen.storyboard */,
 				ABB72AD0289CB22D0009568A /* Info.plist */,
 				ABB72AD6289CB2E20009568A /* GoogleService-Info.plist */,
 			);
@@ -218,9 +246,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB3EB36A289D68FD00A3BFBE /* ThoughtCategory.swift in Sources */,
+				AB5E45CE289F359200640E7D /* MainViewController+UITableViewDelegate.swift in Sources */,
 				ABB72AC7289CB22A0009568A /* MainViewController.swift in Sources */,
 				ABB72AC3289CB22A0009568A /* AppDelegate.swift in Sources */,
+				AB807045289E01900097FFC3 /* PostTableViewCell.swift in Sources */,
+				AB5E45D2289F363500640E7D /* Thought.swift in Sources */,
 				ABB72AC5289CB22A0009568A /* SceneDelegate.swift in Sources */,
+				AB5E45D0289F35A700640E7D /* MainViewController+UITableViewDataSource.swift in Sources */,
 				AB218412289D6044007EE9D8 /* AddThoughtViewController+UITextViewDelegate.swift in Sources */,
 				AB21840E289D5096007EE9D8 /* Constants.swift in Sources */,
 				AB218410289D5193007EE9D8 /* AddThoughtViewController.swift in Sources */,

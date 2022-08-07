@@ -11,13 +11,13 @@ import UIKit
 class AddThoughtViewController: UIViewController {
     lazy var contentStack = UIStackView(
         arrangedSubviews: [
-            moodSelector,
+            categorySelector,
             usernameTextField,
             thoughtTextView,
             postButton
         ]
     )
-    let moodSelector = UISegmentedControl()
+    let categorySelector = UISegmentedControl()
     let usernameTextField = UITextField()
     let thoughtTextView = UITextView()
     let postButton = UIButton()
@@ -38,15 +38,15 @@ class AddThoughtViewController: UIViewController {
         contentStack.spacing = 10
         contentStack.distribution = .fill
 
-        moodSelector.insertSegment(withTitle: "Funny", at: 0, animated: true)
-        moodSelector.insertSegment(withTitle: "Serious", at: 1, animated: true)
-        moodSelector.insertSegment(withTitle: "Crazy", at: 2, animated: true)
-        moodSelector.selectedSegmentIndex = 0
-        moodSelector.selectedSegmentTintColor = Constants.yellowColor
-        moodSelector.backgroundColor = .clear
-        moodSelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
-        moodSelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
-        moodSelector.addTarget(self, action: #selector(moodSelectorChanged), for: .valueChanged)
+        categorySelector.insertSegment(withTitle: "Funny", at: 0, animated: true)
+        categorySelector.insertSegment(withTitle: "Serious", at: 1, animated: true)
+        categorySelector.insertSegment(withTitle: "Crazy", at: 2, animated: true)
+        categorySelector.selectedSegmentIndex = 0
+        categorySelector.selectedSegmentTintColor = Constants.yellowColor
+        categorySelector.backgroundColor = .clear
+        categorySelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
+        categorySelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        categorySelector.addTarget(self, action: #selector(categorySelectorChanged), for: .valueChanged)
 
         usernameTextField.font = UIFont(name: "Avenir Next", size: 14)
         usernameTextField.placeholder = "Username"
@@ -66,8 +66,8 @@ class AddThoughtViewController: UIViewController {
         postButton.addTarget(self, action: #selector(postButtonTapped), for: .touchUpInside)
     }
 
-    @objc func moodSelectorChanged() {
-        switch moodSelector.selectedSegmentIndex {
+    @objc func categorySelectorChanged() {
+        switch categorySelector.selectedSegmentIndex {
         case 0:
             selectedCategory = ThoughtCategory.funny.rawValue
         case 1:
@@ -83,7 +83,7 @@ class AddThoughtViewController: UIViewController {
         guard let usernameText = usernameTextField.text else { return }
         guard thoughtTextView.text != "My random thought..." || thoughtTextView.text != "" else { return }
 
-        Firestore.firestore().collection("thoughts").addDocument(
+        Firestore.firestore().collection(Constants.thoughtsCollection).addDocument(
             data: [
                 Constants.category: selectedCategory,
                 Constants.numberOfComments: 0,
@@ -118,7 +118,7 @@ extension AddThoughtViewController {
 
             thoughtTextView.heightAnchor.constraint(equalToConstant: 100),
 
-            postButton.heightAnchor.constraint(equalToConstant: 50),
+            postButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
