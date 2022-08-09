@@ -128,8 +128,7 @@ class PostTableViewCell: UITableViewCell {
     }
 
     @objc func likeTapped() {
-        Firestore.firestore()
-            .collection(Constants.thoughtsCollection)
+        Constants.thoughtsCollectionReference
             .document(thought.documentId).setData(
                 [
                     Constants.numberOfLikes: thought.numberOfLikes + 1

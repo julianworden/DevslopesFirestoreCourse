@@ -21,11 +21,11 @@ struct Comment {
         guard let snapshot = snapshot else { return comments }
         for document in snapshot.documents {
             let data = document.data()
-            let username = data[Constants.username] as? String ?? "Anonymous"
+            let username = data[Constants.fbUsername] as? String ?? "Anonymous"
             let timestamp = data[Constants.timestamp] as? Timestamp ?? Timestamp(date: Date())
-            let commentText = data[Constants.commentText] as? String ?? ""
+            let commentText = data[Constants.fbCommentText] as? String ?? ""
             let documentId = document.documentID
-            let userId = data[Constants.userId] as? String ?? ""
+            let userId = data[Constants.fbUserId] as? String ?? ""
 
             let comment = Comment(
                 username: username,

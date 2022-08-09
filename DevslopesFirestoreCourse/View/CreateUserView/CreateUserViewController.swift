@@ -77,11 +77,11 @@ class CreateUserViewController: UIViewController {
                 }
 
                 Firestore.firestore()
-                    .collection(Constants.usersCollection)
+                    .collection(Constants.fbUsers)
                     .document(user.uid).setData(
                         [
-                            Constants.username: username,
-                            Constants.dateCreated: FieldValue.serverTimestamp()
+                            Constants.fbUsername: username,
+                            Constants.fbDateCreated: FieldValue.serverTimestamp()
                         ]
                     ) { [weak self] error in
                         if let error = error {

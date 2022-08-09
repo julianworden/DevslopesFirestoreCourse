@@ -25,24 +25,24 @@ struct Constants {
     )
 
     // Thought Data Model for Firebase
-    static let thoughtsCollection = "thoughts"
-    static let commentsCollection = "comments"
-    static let category = "category"
+    static let fbThoughts = "thoughts"
+    static let fbComments = "comments"
+    static let fbCategory = "category"
     static let numberOfComments = "numberOfComments"
     static let numberOfLikes = "numberOfLikes"
     static let timestamp = "timestamp"
-    static let thoughtText = "thoughtText"
-    static let username = "username"
-    static let commentText = "commentText"
-    static let userId = "userId"
-    static let documentId = "documentId"
+    static let fbThoughtText = "thoughtText"
+    static let fbUsername = "username"
+    static let fbCommentText = "commentText"
+    static let fbUserId = "userId"
+    static let fbDocumentId = "documentId"
 
     // User Data Model for Firebase
-    static let usersCollection = "users"
-    static let dateCreated = "dateCreated"
+    static let fbUsers = "users"
+    static let fbDateCreated = "dateCreated"
 
     // Firebase References
-    static let thoughtsCollectionReference = Firestore.firestore().collection(thoughtsCollection)
+    static let thoughtsCollectionReference = Firestore.firestore().collection(fbThoughts)
 
     // Table View Reuse IDs
     static let postTableViewCellReuseId = "PostCell"

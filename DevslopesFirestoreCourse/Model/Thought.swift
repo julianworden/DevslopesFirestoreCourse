@@ -23,13 +23,13 @@ struct Thought: Equatable {
         guard let snapshot = snapshot else { return thoughts }
         for document in snapshot.documents {
             let data = document.data()
-            let username = data[Constants.username] as? String ?? "Anonymous"
+            let username = data[Constants.fbUsername] as? String ?? "Anonymous"
             let timestamp = data[Constants.timestamp] as? Timestamp ?? Timestamp(date: Date())
-            let thoughtText = data[Constants.thoughtText] as? String ?? ""
+            let thoughtText = data[Constants.fbThoughtText] as? String ?? ""
             let numberOfLikes = data[Constants.numberOfLikes] as? Int ?? 0
             let numberOfComments = data[Constants.numberOfComments] as? Int ?? 0
             let documentId =  document.documentID
-            let userId = data[Constants.userId] as? String ?? ""
+            let userId = data[Constants.fbUserId] as? String ?? ""
 
             let thought = Thought(
                 username: username,

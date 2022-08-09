@@ -69,7 +69,6 @@ class MainViewController: UIViewController {
         categorySelector.insertSegment(withTitle: "Popular", at: 3, animated: true)
         categorySelector.selectedSegmentIndex = 0
         categorySelector.selectedSegmentTintColor = Constants.yellowColor
-
         categorySelector.backgroundColor = .clear
         categorySelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
         categorySelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
@@ -98,7 +97,7 @@ class MainViewController: UIViewController {
             }
         } else {
             thoughtsListener = Constants.thoughtsCollectionReference
-                .whereField(Constants.category, isEqualTo: selectedCategory)
+                .whereField(Constants.fbCategory, isEqualTo: selectedCategory)
                 .order(by: Constants.timestamp, descending: true)
                 .addSnapshotListener { [weak self] snapshot, error in
                 if let error = error {

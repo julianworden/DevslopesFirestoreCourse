@@ -12,13 +12,11 @@ class AddThoughtViewController: UIViewController {
     lazy var contentStack = UIStackView(
         arrangedSubviews: [
             categorySelector,
-            usernameTextField,
             thoughtTextView,
             postButton
         ]
     )
     let categorySelector = UISegmentedControl()
-    let usernameTextField = UITextField()
     let thoughtTextView = UITextView()
     let postButton = RoundedButton(title: "Post", color: Constants.yellowColor)
 
@@ -36,7 +34,6 @@ class AddThoughtViewController: UIViewController {
 
         contentStack.axis = .vertical
         contentStack.spacing = 10
-        contentStack.distribution = .fill
 
         categorySelector.insertSegment(withTitle: "Funny", at: 0, animated: true)
         categorySelector.insertSegment(withTitle: "Serious", at: 1, animated: true)
@@ -47,9 +44,6 @@ class AddThoughtViewController: UIViewController {
         categorySelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
         categorySelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         categorySelector.addTarget(self, action: #selector(categorySelectorChanged), for: .valueChanged)
-
-        usernameTextField.font = UIFont(name: "Avenir Next", size: 14)
-        usernameTextField.placeholder = "Username"
 
         thoughtTextView.font = UIFont(name: "Avenir Next", size: 14)
         thoughtTextView.backgroundColor = .lightGray.withAlphaComponent(0.25)
@@ -78,15 +72,15 @@ class AddThoughtViewController: UIViewController {
         guard let currentUser = Auth.auth().currentUser else { return }
         guard thoughtTextView.text != "My random thought..." || thoughtTextView.text != "" else { return }
 
-        Firestore.firestore().collection(Constants.thoughtsCollection).addDocument(
+        Constants.thoughtsCollectionReference.addDocument(
             data: [
-                Constants.category: selectedCategory,
+                Constants.fbCategory: selectedCategory,
                 Constants.numberOfComments: 0,
                 Constants.numberOfLikes: 0,
-                Constants.thoughtText: thoughtTextView.text!,
+                Constants.fbThoughtText: thoughtTextView.text!,
                 Constants.timestamp: FieldValue.serverTimestamp(),
-                Constants.username: currentUser.displayName ?? "",
-                Constants.userId: currentUser.uid
+                Constants.fbUsername: currentUser.displayName ?? "",
+                Constants.fbUserId: currentUser.uid
             ]
         ) { [weak self] error in
             if let error = error {
@@ -103,7 +97,6 @@ extension AddThoughtViewController {
         view.addSubview(contentStack)
 
         contentStack.translatesAutoresizingMaskIntoConstraints = false
-        usernameTextField.translatesAutoresizingMaskIntoConstraints = false
         thoughtTextView.translatesAutoresizingMaskIntoConstraints = false
         postButton.translatesAutoresizingMaskIntoConstraints = false
 

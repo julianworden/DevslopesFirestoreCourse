@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB1FDBF528A2865A00EFAE33 /* UpdateCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1FDBF428A2865900EFAE33 /* UpdateCommentViewController.swift */; };
 		AB21840E289D5096007EE9D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21840D289D5096007EE9D8 /* Constants.swift */; };
 		AB218410289D5193007EE9D8 /* AddThoughtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21840F289D5193007EE9D8 /* AddThoughtViewController.swift */; };
 		AB218412289D6044007EE9D8 /* AddThoughtViewController+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB218411289D6044007EE9D8 /* AddThoughtViewController+UITextViewDelegate.swift */; };
@@ -34,7 +35,6 @@
 		ABDBBA5628A0860100188BA2 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA5528A0860100188BA2 /* CommentsViewController.swift */; };
 		ABDBBA5828A08B5F00188BA2 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA5728A08B5F00188BA2 /* CommentTableViewCell.swift */; };
 		ABDBBA5A28A08BF600188BA2 /* CommentsViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA5928A08BF600188BA2 /* CommentsViewController+UITableViewDataSource.swift */; };
-		ABDBBA5C28A08BFD00188BA2 /* CommentsViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA5B28A08BFD00188BA2 /* CommentsViewController+UITableViewDelegate.swift */; };
 		ABDBBA5E28A08F9F00188BA2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA5D28A08F9F00188BA2 /* Comment.swift */; };
 		ABFD38BA28A13F43002EF90F /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFD38B928A13F43002EF90F /* KeyboardBoundView.swift */; };
 		ABFD38BC28A15B74002EF90F /* PostDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFD38BB28A15B74002EF90F /* PostDelegate.swift */; };
@@ -42,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB1FDBF428A2865900EFAE33 /* UpdateCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCommentViewController.swift; sourceTree = "<group>"; };
 		AB21840D289D5096007EE9D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AB21840F289D5193007EE9D8 /* AddThoughtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThoughtViewController.swift; sourceTree = "<group>"; };
 		AB218411289D6044007EE9D8 /* AddThoughtViewController+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddThoughtViewController+UITextViewDelegate.swift"; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		ABDBBA5528A0860100188BA2 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		ABDBBA5728A08B5F00188BA2 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		ABDBBA5928A08BF600188BA2 /* CommentsViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentsViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
-		ABDBBA5B28A08BFD00188BA2 /* CommentsViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentsViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		ABDBBA5D28A08F9F00188BA2 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		ABFD38B928A13F43002EF90F /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
 		ABFD38BB28A15B74002EF90F /* PostDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB1FDBF628A2865B00EFAE33 /* UpdateCommentView */ = {
+			isa = PBXGroup;
+			children = (
+				AB1FDBF428A2865900EFAE33 /* UpdateCommentViewController.swift */,
+			);
+			path = UpdateCommentView;
+			sourceTree = "<group>";
+		};
 		AB3EB36B289D6AA500A3BFBE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +107,7 @@
 				AB807046289E019C0097FFC3 /* MainView */,
 				AB807047289E01AA0097FFC3 /* AddThoughtView */,
 				ABDBBA5428A085E600188BA2 /* CommentsView */,
+				AB1FDBF628A2865B00EFAE33 /* UpdateCommentView */,
 				ABDBBA4F28A03EFE00188BA2 /* RoundedButton.swift */,
 			);
 			path = View;
@@ -197,7 +206,6 @@
 			children = (
 				ABDBBA5528A0860100188BA2 /* CommentsViewController.swift */,
 				ABDBBA5928A08BF600188BA2 /* CommentsViewController+UITableViewDataSource.swift */,
-				ABDBBA5B28A08BFD00188BA2 /* CommentsViewController+UITableViewDelegate.swift */,
 				AB9C529F28A1FA8F00608406 /* CommentsViewController+CommentDelegate.swift */,
 				ABDBBA5728A08B5F00188BA2 /* CommentTableViewCell.swift */,
 				AB9C529D28A1F9D900608406 /* CommentDelegate.swift */,
@@ -314,6 +322,7 @@
 				ABFD38BA28A13F43002EF90F /* KeyboardBoundView.swift in Sources */,
 				AB3EB36A289D68FD00A3BFBE /* ThoughtCategory.swift in Sources */,
 				AB9C52A028A1FA8F00608406 /* CommentsViewController+CommentDelegate.swift in Sources */,
+				AB1FDBF528A2865A00EFAE33 /* UpdateCommentViewController.swift in Sources */,
 				AB5E45CE289F359200640E7D /* MainViewController+UITableViewDelegate.swift in Sources */,
 				ABDBBA5228A042ED00188BA2 /* CreateUserViewController.swift in Sources */,
 				ABB72AC7289CB22A0009568A /* MainViewController.swift in Sources */,
@@ -326,7 +335,6 @@
 				AB5E45D0289F35A700640E7D /* MainViewController+UITableViewDataSource.swift in Sources */,
 				AB218412289D6044007EE9D8 /* AddThoughtViewController+UITextViewDelegate.swift in Sources */,
 				AB21840E289D5096007EE9D8 /* Constants.swift in Sources */,
-				ABDBBA5C28A08BFD00188BA2 /* CommentsViewController+UITableViewDelegate.swift in Sources */,
 				ABDBBA5E28A08F9F00188BA2 /* Comment.swift in Sources */,
 				AB9C529E28A1F9DA00608406 /* CommentDelegate.swift in Sources */,
 				AB218410289D5193007EE9D8 /* AddThoughtViewController.swift in Sources */,

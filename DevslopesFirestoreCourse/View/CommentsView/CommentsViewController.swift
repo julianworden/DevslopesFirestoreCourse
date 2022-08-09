@@ -33,14 +33,16 @@ class CommentsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        commentListener = firestore
-            .collection(Constants.thoughtsCollection)
+        commentListener = Constants.thoughtsCollectionReference
             .document(thought.documentId)
-            .collection(Constants.commentsCollection)
+            .collection(Constants.fbComments)
             .order(by: Constants.timestamp, descending: true)
             .addSnapshotListener({ snapshot, error in
                 guard let snapshot = snapshot else {
-                    debugPrint("Error fetching comments: \(error)")
+                    if let error = error {
+                        debugPrint("Error fetching comments: \(error)")
+                    }
+
                     return
                 }
 
@@ -61,7 +63,6 @@ class CommentsViewController: UIViewController {
 
         tableView.register(CommentTableViewCell.self, forCellReuseIdentifier: Constants.commentTableViewCellReuseId)
         tableView.dataSource = self
-        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
@@ -92,9 +93,10 @@ class CommentsViewController: UIViewController {
             var thoughtDocument: DocumentSnapshot!
 
             do {
-                try thoughtDocument = transaction
-                    .getDocument(self.firestore.collection(Constants.thoughtsCollection)
-                    .document(self.thought.documentId))
+                try thoughtDocument = transaction.getDocument(
+                    Constants.thoughtsCollectionReference
+                        .document(self.thought.documentId)
+                )
             } catch let error as NSError {
                 debugPrint("Fetch error: \(error)")
                 return nil
@@ -103,19 +105,18 @@ class CommentsViewController: UIViewController {
             guard let oldNumComments = thoughtDocument.data()?[Constants.numberOfComments] as? Int else { return nil }
             transaction.updateData([Constants.numberOfComments: oldNumComments + 1], forDocument: self.thoughtReference)
 
-            let newCommentReference = self.firestore
-                .collection(Constants.thoughtsCollection)
+            let newCommentReference = Constants.thoughtsCollectionReference
                 .document(self.thought.documentId)
-                .collection(Constants.commentsCollection)
+                .collection(Constants.fbComments)
                 .document()
 
             transaction.setData(
                 [
-                    Constants.commentText: commentText,
+                    Constants.fbCommentText: commentText,
                     Constants.timestamp: FieldValue.serverTimestamp(),
-                    Constants.username: self.username ?? "Anonymous",
-                    Constants.documentId: newCommentReference.documentID,
-                    Constants.userId: currentUser.uid
+                    Constants.fbUsername: self.username ?? "Anonymous",
+                    Constants.fbDocumentId: newCommentReference.documentID,
+                    Constants.fbUserId: currentUser.uid
                 ],
                 forDocument: newCommentReference
             )
