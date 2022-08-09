@@ -9,5 +9,9 @@ import Foundation
 import UIKit
 
 extension MainViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let commentsViewController = CommentsViewController()
+        commentsViewController.thought = thoughts[indexPath.row]
+        navigationController?.pushViewController(commentsViewController, animated: true)
+    }
 }

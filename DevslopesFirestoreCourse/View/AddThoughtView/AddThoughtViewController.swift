@@ -20,7 +20,7 @@ class AddThoughtViewController: UIViewController {
     let categorySelector = UISegmentedControl()
     let usernameTextField = UITextField()
     let thoughtTextView = UITextView()
-    let postButton = UIButton()
+    let postButton = RoundedButton(title: "Post", color: Constants.yellowColor)
 
     private var selectedCategory = ThoughtCategory.funny.rawValue
 
@@ -58,11 +58,6 @@ class AddThoughtViewController: UIViewController {
         thoughtTextView.textColor = .lightGray
         thoughtTextView.delegate = self
 
-        postButton.setTitle("Post", for: .normal)
-        postButton.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 17)
-        postButton.setTitleColor(.white, for: .normal)
-        postButton.backgroundColor = Constants.yellowColor
-        postButton.layer.cornerRadius = 4
         postButton.addTarget(self, action: #selector(postButtonTapped), for: .touchUpInside)
     }
 
@@ -80,7 +75,7 @@ class AddThoughtViewController: UIViewController {
     }
 
     @objc func postButtonTapped() {
-        guard let usernameText = usernameTextField.text else { return }
+        guard let currentUser = Auth.auth().currentUser else { return }
         guard thoughtTextView.text != "My random thought..." || thoughtTextView.text != "" else { return }
 
         Firestore.firestore().collection(Constants.thoughtsCollection).addDocument(
@@ -90,7 +85,8 @@ class AddThoughtViewController: UIViewController {
                 Constants.numberOfLikes: 0,
                 Constants.thoughtText: thoughtTextView.text!,
                 Constants.timestamp: FieldValue.serverTimestamp(),
-                Constants.username: usernameText
+                Constants.username: currentUser.displayName ?? "",
+                Constants.userId: currentUser.uid
             ]
         ) { [weak self] error in
             if let error = error {

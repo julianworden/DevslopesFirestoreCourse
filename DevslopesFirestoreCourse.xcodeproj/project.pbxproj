@@ -15,6 +15,8 @@
 		AB5E45D0289F35A700640E7D /* MainViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5E45CF289F35A700640E7D /* MainViewController+UITableViewDataSource.swift */; };
 		AB5E45D2289F363500640E7D /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5E45D1289F363500640E7D /* Thought.swift */; };
 		AB807045289E01900097FFC3 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB807044289E01900097FFC3 /* PostTableViewCell.swift */; };
+		AB9C529E28A1F9DA00608406 /* CommentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9C529D28A1F9D900608406 /* CommentDelegate.swift */; };
+		AB9C52A028A1FA8F00608406 /* CommentsViewController+CommentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9C529F28A1FA8F00608406 /* CommentsViewController+CommentDelegate.swift */; };
 		ABB72AC3289CB22A0009568A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB72AC2289CB22A0009568A /* AppDelegate.swift */; };
 		ABB72AC5289CB22A0009568A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB72AC4289CB22A0009568A /* SceneDelegate.swift */; };
 		ABB72AC7289CB22A0009568A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB72AC6289CB22A0009568A /* MainViewController.swift */; };
@@ -26,6 +28,17 @@
 		ABB72ADC289CB3810009568A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = ABB72ADB289CB3810009568A /* FirebaseAuth */; };
 		ABB72ADE289CB3810009568A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = ABB72ADD289CB3810009568A /* FirebaseFirestore */; };
 		ABB72AE0289CB3810009568A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ABB72ADF289CB3810009568A /* FirebaseFirestoreSwift */; };
+		ABDBBA4D28A03D1700188BA2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA4C28A03D1700188BA2 /* LoginViewController.swift */; };
+		ABDBBA5028A03EFE00188BA2 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA4F28A03EFE00188BA2 /* RoundedButton.swift */; };
+		ABDBBA5228A042ED00188BA2 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA5128A042ED00188BA2 /* CreateUserViewController.swift */; };
+		ABDBBA5628A0860100188BA2 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA5528A0860100188BA2 /* CommentsViewController.swift */; };
+		ABDBBA5828A08B5F00188BA2 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA5728A08B5F00188BA2 /* CommentTableViewCell.swift */; };
+		ABDBBA5A28A08BF600188BA2 /* CommentsViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA5928A08BF600188BA2 /* CommentsViewController+UITableViewDataSource.swift */; };
+		ABDBBA5C28A08BFD00188BA2 /* CommentsViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA5B28A08BFD00188BA2 /* CommentsViewController+UITableViewDelegate.swift */; };
+		ABDBBA5E28A08F9F00188BA2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDBBA5D28A08F9F00188BA2 /* Comment.swift */; };
+		ABFD38BA28A13F43002EF90F /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFD38B928A13F43002EF90F /* KeyboardBoundView.swift */; };
+		ABFD38BC28A15B74002EF90F /* PostDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFD38BB28A15B74002EF90F /* PostDelegate.swift */; };
+		ABFD38BE28A15BE5002EF90F /* MainViewController+PostDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFD38BD28A15BE5002EF90F /* MainViewController+PostDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +50,8 @@
 		AB5E45CF289F35A700640E7D /* MainViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		AB5E45D1289F363500640E7D /* Thought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
 		AB807044289E01900097FFC3 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		AB9C529D28A1F9D900608406 /* CommentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDelegate.swift; sourceTree = "<group>"; };
+		AB9C529F28A1FA8F00608406 /* CommentsViewController+CommentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentsViewController+CommentDelegate.swift"; sourceTree = "<group>"; };
 		ABB72ABF289CB22A0009568A /* DevslopesFirestoreCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevslopesFirestoreCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB72AC2289CB22A0009568A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB72AC4289CB22A0009568A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +61,17 @@
 		ABB72ACE289CB22D0009568A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABB72AD0289CB22D0009568A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABB72AD6289CB2E20009568A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ABDBBA4C28A03D1700188BA2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ABDBBA4F28A03EFE00188BA2 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		ABDBBA5128A042ED00188BA2 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		ABDBBA5528A0860100188BA2 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		ABDBBA5728A08B5F00188BA2 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		ABDBBA5928A08BF600188BA2 /* CommentsViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentsViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		ABDBBA5B28A08BFD00188BA2 /* CommentsViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentsViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		ABDBBA5D28A08F9F00188BA2 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		ABFD38B928A13F43002EF90F /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
+		ABFD38BB28A15B74002EF90F /* PostDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDelegate.swift; sourceTree = "<group>"; };
+		ABFD38BD28A15BE5002EF90F /* MainViewController+PostDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+PostDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +94,12 @@
 			children = (
 				ABB72AC8289CB22A0009568A /* Main.storyboard */,
 				ABB72ACD289CB22D0009568A /* LaunchScreen.storyboard */,
+				ABDBBA5328A042EF00188BA2 /* CreateUserView */,
+				ABDBBA4B28A03C7600188BA2 /* LoginView */,
 				AB807046289E019C0097FFC3 /* MainView */,
 				AB807047289E01AA0097FFC3 /* AddThoughtView */,
+				ABDBBA5428A085E600188BA2 /* CommentsView */,
+				ABDBBA4F28A03EFE00188BA2 /* RoundedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -79,6 +109,7 @@
 			children = (
 				AB3EB369289D68FD00A3BFBE /* ThoughtCategory.swift */,
 				AB5E45D1289F363500640E7D /* Thought.swift */,
+				ABDBBA5D28A08F9F00188BA2 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -86,6 +117,7 @@
 		AB3EB36D289D6B3B00A3BFBE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				ABFD38B928A13F43002EF90F /* KeyboardBoundView.swift */,
 				AB21840D289D5096007EE9D8 /* Constants.swift */,
 			);
 			path = Utilities;
@@ -97,7 +129,9 @@
 				ABB72AC6289CB22A0009568A /* MainViewController.swift */,
 				AB5E45CD289F359200640E7D /* MainViewController+UITableViewDelegate.swift */,
 				AB5E45CF289F35A700640E7D /* MainViewController+UITableViewDataSource.swift */,
+				ABFD38BD28A15BE5002EF90F /* MainViewController+PostDelegate.swift */,
 				AB807044289E01900097FFC3 /* PostTableViewCell.swift */,
+				ABFD38BB28A15B74002EF90F /* PostDelegate.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -140,6 +174,35 @@
 				ABB72AD6289CB2E20009568A /* GoogleService-Info.plist */,
 			);
 			path = DevslopesFirestoreCourse;
+			sourceTree = "<group>";
+		};
+		ABDBBA4B28A03C7600188BA2 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				ABDBBA4C28A03D1700188BA2 /* LoginViewController.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		ABDBBA5328A042EF00188BA2 /* CreateUserView */ = {
+			isa = PBXGroup;
+			children = (
+				ABDBBA5128A042ED00188BA2 /* CreateUserViewController.swift */,
+			);
+			path = CreateUserView;
+			sourceTree = "<group>";
+		};
+		ABDBBA5428A085E600188BA2 /* CommentsView */ = {
+			isa = PBXGroup;
+			children = (
+				ABDBBA5528A0860100188BA2 /* CommentsViewController.swift */,
+				ABDBBA5928A08BF600188BA2 /* CommentsViewController+UITableViewDataSource.swift */,
+				ABDBBA5B28A08BFD00188BA2 /* CommentsViewController+UITableViewDelegate.swift */,
+				AB9C529F28A1FA8F00608406 /* CommentsViewController+CommentDelegate.swift */,
+				ABDBBA5728A08B5F00188BA2 /* CommentTableViewCell.swift */,
+				AB9C529D28A1F9D900608406 /* CommentDelegate.swift */,
+			);
+			path = CommentsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,17 +308,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABDBBA4D28A03D1700188BA2 /* LoginViewController.swift in Sources */,
+				ABDBBA5628A0860100188BA2 /* CommentsViewController.swift in Sources */,
+				ABFD38BC28A15B74002EF90F /* PostDelegate.swift in Sources */,
+				ABFD38BA28A13F43002EF90F /* KeyboardBoundView.swift in Sources */,
 				AB3EB36A289D68FD00A3BFBE /* ThoughtCategory.swift in Sources */,
+				AB9C52A028A1FA8F00608406 /* CommentsViewController+CommentDelegate.swift in Sources */,
 				AB5E45CE289F359200640E7D /* MainViewController+UITableViewDelegate.swift in Sources */,
+				ABDBBA5228A042ED00188BA2 /* CreateUserViewController.swift in Sources */,
 				ABB72AC7289CB22A0009568A /* MainViewController.swift in Sources */,
 				ABB72AC3289CB22A0009568A /* AppDelegate.swift in Sources */,
+				ABDBBA5028A03EFE00188BA2 /* RoundedButton.swift in Sources */,
 				AB807045289E01900097FFC3 /* PostTableViewCell.swift in Sources */,
+				ABDBBA5A28A08BF600188BA2 /* CommentsViewController+UITableViewDataSource.swift in Sources */,
 				AB5E45D2289F363500640E7D /* Thought.swift in Sources */,
 				ABB72AC5289CB22A0009568A /* SceneDelegate.swift in Sources */,
 				AB5E45D0289F35A700640E7D /* MainViewController+UITableViewDataSource.swift in Sources */,
 				AB218412289D6044007EE9D8 /* AddThoughtViewController+UITextViewDelegate.swift in Sources */,
 				AB21840E289D5096007EE9D8 /* Constants.swift in Sources */,
+				ABDBBA5C28A08BFD00188BA2 /* CommentsViewController+UITableViewDelegate.swift in Sources */,
+				ABDBBA5E28A08F9F00188BA2 /* Comment.swift in Sources */,
+				AB9C529E28A1F9DA00608406 /* CommentDelegate.swift in Sources */,
 				AB218410289D5193007EE9D8 /* AddThoughtViewController.swift in Sources */,
+				ABFD38BE28A15BE5002EF90F /* MainViewController+PostDelegate.swift in Sources */,
+				ABDBBA5828A08B5F00188BA2 /* CommentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

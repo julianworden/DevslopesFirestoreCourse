@@ -15,22 +15,7 @@ struct Thought: Equatable {
     private(set) var numberOfLikes: Int
     private(set) var numberOfComments: Int
     private(set) var documentId: String
-
-    init(
-        username: String,
-        timestamp: Timestamp,
-        thoughtText: String,
-        numberOfLikes: Int,
-        numberOfComments: Int,
-        documentId: String
-    ) {
-        self.username = username
-        self.timestamp = timestamp
-        self.thoughtText = thoughtText
-        self.numberOfLikes = numberOfLikes
-        self.numberOfComments = numberOfComments
-        self.documentId = documentId
-    }
+    private(set) var userId: String
 
     static func parseData(snapshot: QuerySnapshot?) -> [Thought] {
         var thoughts = [Thought]()
@@ -44,6 +29,7 @@ struct Thought: Equatable {
             let numberOfLikes = data[Constants.numberOfLikes] as? Int ?? 0
             let numberOfComments = data[Constants.numberOfComments] as? Int ?? 0
             let documentId =  document.documentID
+            let userId = data[Constants.userId] as? String ?? ""
 
             let thought = Thought(
                 username: username,
@@ -51,7 +37,8 @@ struct Thought: Equatable {
                 thoughtText: thoughtText,
                 numberOfLikes: numberOfLikes,
                 numberOfComments: numberOfComments,
-                documentId: documentId
+                documentId: documentId,
+                userId: userId
             )
 
             thoughts.append(thought)

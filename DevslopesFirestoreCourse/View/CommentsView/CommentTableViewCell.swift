@@ -1,19 +1,18 @@
 //
-//  PostTableViewCell.swift
+//  CommentsTableViewCell.swift
 //  DevslopesFirestoreCourse
 //
-//  Created by Julian Worden on 8/5/22.
+//  Created by Julian Worden on 8/7/22.
 //
 
 import Firebase
 import UIKit
 
-class PostTableViewCell: UITableViewCell {
+class CommentTableViewCell: UITableViewCell {
     lazy var contentStack = UIStackView(
         arrangedSubviews: [
             topLineStack,
-            thoughtTextLabel,
-            likesAndCommentsStack
+            commentTextLabel
         ]
     )
     lazy var topLineStack = UIStackView(
@@ -31,29 +30,16 @@ class PostTableViewCell: UITableViewCell {
     let usernameLabel = UILabel()
     let timestampLabel = UILabel()
     let detailImageView = UIImageView()
-    let thoughtTextLabel = UILabel()
-    lazy var likesAndCommentsStack = UIStackView(
-        arrangedSubviews: [
-            starImageView,
-            numberOfLikesLabel,
-            commentsImageView,
-            numberOfCommentsLabel
-        ]
-    )
-    let starImageView = UIImageView()
-    let numberOfLikesLabel = UILabel()
-    let commentsImageView = UIImageView()
-    let numberOfCommentsLabel = UILabel()
+    let commentTextLabel = UILabel()
 
-    private var thought: Thought!
-    weak private var delegate: PostDelegate?
+    private var comment: Comment!
+    weak private var delegate: CommentDelegate?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configureViews()
         layoutViews()
-        configureGestureRecognizer()
     }
 
     required init?(coder: NSCoder) {
@@ -61,7 +47,6 @@ class PostTableViewCell: UITableViewCell {
     }
 
     func configureViews() {
-        contentView.backgroundColor = .white
         selectionStyle = .none
 
         contentStack.axis = .vertical
@@ -80,36 +65,23 @@ class PostTableViewCell: UITableViewCell {
 
         detailImageView.image = UIImage(named: "optionsImageDark")
 
-        thoughtTextLabel.font = UIFont(name: "Avenir Next Regular", size: 14)
-        thoughtTextLabel.numberOfLines = 0
-
-        likesAndCommentsStack.axis = .horizontal
-        likesAndCommentsStack.spacing = 6
-
-        starImageView.image = UIImage(named: "starIconFilled")
-
-        numberOfLikesLabel.font = UIFont(name: "Avenir Next Regular", size: 14)
-
-        commentsImageView.image = UIImage(named: "commentIcon")
-
-        numberOfCommentsLabel.font = UIFont(name: "Avenir Next Regular", size: 14)
+        commentTextLabel.font = UIFont(name: "Avenir Next Regular", size: 14)
+        commentTextLabel.numberOfLines = 0
     }
 
-    func configureCell(thought: Thought, delegate: PostDelegate?) {
+    func configureCell(comment: Comment, delegate: CommentDelegate?) {
+        usernameLabel.text = comment.username
+        commentTextLabel.text = comment.commentText
         detailImageView.isHidden = true
-        self.thought = thought
+        self.comment = comment
         self.delegate = delegate
-        usernameLabel.text = thought.username
-        thoughtTextLabel.text = thought.thoughtText
-        numberOfLikesLabel.text = String(thought.numberOfLikes)
-        numberOfCommentsLabel.text = String(thought.numberOfComments)
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, hh:mm"
-        let timestamp = dateFormatter.string(from: thought.timestamp.dateValue())
+        let timestamp = dateFormatter.string(from: comment.timestamp.dateValue())
         timestampLabel.text = timestamp
 
-        if thought.userId == Auth.auth().currentUser?.uid {
+        if comment.userId == Auth.auth().currentUser?.uid {
             detailImageView.isHidden = false
             detailImageView.isUserInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(detailImageTapped))
@@ -117,31 +89,14 @@ class PostTableViewCell: UITableViewCell {
         }
     }
 
-    func configureGestureRecognizer() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(likeTapped))
-        starImageView.addGestureRecognizer(tap)
-        starImageView.isUserInteractionEnabled = true
-    }
-
     @objc func detailImageTapped() {
-        delegate?.postCell(self, selectedDetailsForThought: thought)
-    }
-
-    @objc func likeTapped() {
-        Firestore.firestore()
-            .collection(Constants.thoughtsCollection)
-            .document(thought.documentId).setData(
-                [
-                    Constants.numberOfLikes: thought.numberOfLikes + 1
-                ],
-                merge: true
-            )
+        delegate?.commentCell(self, selectedDetailsForComment: comment)
     }
 }
 
 // MARK: - Constraints
 
-extension PostTableViewCell {
+extension CommentTableViewCell {
     func layoutViews() {
         contentView.addSubview(contentStack)
 

@@ -21,7 +21,7 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.postTableViewCellReuseId, for: indexPath)
         if let cell = cell as? PostTableViewCell {
             let thought = thoughts[indexPath.row]
-            cell.configureCell(thought: thought)
+            cell.configureCell(thought: thought, delegate: self)
             return cell
         } else {
             return UITableViewCell()

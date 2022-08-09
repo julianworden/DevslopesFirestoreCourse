@@ -12,10 +12,10 @@ class MainViewController: UIViewController {
     let categorySelector = UISegmentedControl()
     let tableView = UITableView()
 
-    private var selectedCategory = ThoughtCategory.funny.rawValue
-
     var thoughts = [Thought]()
+    private var selectedCategory = ThoughtCategory.funny.rawValue
     private var thoughtsListener: ListenerRegistration!
+    private var handle: AuthStateDidChangeListenerHandle?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +27,40 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        setThoughtsListener()
+        handle = Auth.auth().addStateDidChangeListener({ [weak self] _, user in
+            if user == nil {
+                let loginViewController = LoginViewController()
+                self?.present(loginViewController, animated: true)
+            } else {
+                self?.setThoughtsListener()
+            }
+        })
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if thoughtsListener != nil {
+            thoughtsListener.remove()
+        }
     }
 
     func configureViews() {
         view.backgroundColor = .white
         title = "RNDM"
+        let logOutButton = UIBarButtonItem(
+            title: "Log Out",
+            style: .plain,
+            target: self,
+            action: #selector(logOutTapped)
+        )
         let addThoughtButton = UIBarButtonItem(
             image: UIImage(named: "addThoughtIcon"),
             style: .plain,
             target: self,
             action: #selector(addThoughtTapped)
         )
+        navigationItem.leftBarButtonItem = logOutButton
         navigationItem.rightBarButtonItem = addThoughtButton
 
         categorySelector.insertSegment(withTitle: "Funny", at: 0, animated: true)
@@ -90,10 +112,13 @@ class MainViewController: UIViewController {
         }
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        thoughtsListener.remove()
+    @objc func logOutTapped() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch {
+            debugPrint("Error signing out: \(error)")
+        }
     }
 
     @objc func addThoughtTapped() {
